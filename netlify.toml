@@ -1,0 +1,8 @@
+# Netlify reads this file. It publishes the dist folder as the website; there is no build step.
+[build]
+  publish = "dist"
+
+[[headers]]
+  for = "/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"

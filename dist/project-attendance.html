@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Facial Recognition Attendance System</title>
+<meta name="description" content="An automated attendance system that recognises faces with computer vision, replacing manual registers with a faster and more secure record.">
+<meta name="author" content="Amos Olaoluwa Abiodun">
+<meta name="robots" content="index, follow">
+<meta property="og:site_name" content="Amos Abiodun">
+<meta property="og:title" content="AI Facial Recognition Attendance System">
+<meta property="og:description" content="An automated attendance system that recognises faces with computer vision, replacing manual registers with a faster and more secure record.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_NG">
+<meta property="og:image" content="https://amosabiodun.netlify.app/img/share.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Amos Abiodun, Electrical/Electronics engineer">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI Facial Recognition Attendance System">
+<meta name="twitter:description" content="An automated attendance system that recognises faces with computer vision, replacing manual registers with a faster and more secure record.">
+<meta name="twitter:image" content="https://amosabiodun.netlify.app/img/share.jpg">
+<link rel="canonical" href="https://amosabiodun.netlify.app/project-attendance.html">
+<meta property="og:url" content="https://amosabiodun.netlify.app/project-attendance.html">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Person", "@id": "https://amosabiodun.netlify.app/#amos", "name": "Amos Abiodun", "alternateName": ["Amos Olaoluwa Abiodun", "Abiodun Amos", "Engr. Amos Abiodun"], "givenName": "Amos", "additionalName": "Olaoluwa", "familyName": "Abiodun", "url": "https://amosabiodun.netlify.app/", "image": "https://amosabiodun.netlify.app/img/amos-portrait.png", "jobTitle": "Electrical/Electronics Engineer", "description": "Electrical/Electronics engineer in Ibadan, Nigeria, working across embedded systems, IoT, machine learning and data science.", "email": "mailto:abiodunamos59@gmail.com", "telephone": "+2348086130089", "address": {"@type": "PostalAddress", "addressLocality": "Ibadan", "addressRegion": "Oyo", "addressCountry": "NG"}, "knowsAbout": ["Electrical and Electronics Engineering", "Embedded Systems", "Internet of Things", "Machine Learning", "Data Science", "Robotics", "Public Speaking"], "sameAs": ["https://linkedin.com/in/abiodun-amos", "https://github.com/Abiodun-Amos"]}, {"@type": "WebSite", "@id": "https://amosabiodun.netlify.app/#site", "url": "https://amosabiodun.netlify.app/", "name": "Amos Abiodun", "alternateName": "Amos Abiodun Portfolio", "inLanguage": "en", "publisher": {"@id": "https://amosabiodun.netlify.app/#amos"}}]}</script>
+<meta name="theme-color" content="#101010">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="img/touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+<script>(function(){var d=document.documentElement,t='dark';d.classList.add('js');try{t=localStorage.getItem('aa-theme')||'dark'}catch(e){}d.setAttribute('data-theme',t)})()</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="curtain" aria-hidden="true"></div>
+<div class="progress" aria-hidden="true"></div>
+<div class="cursor" aria-hidden="true"></div>
+<header class="header">
+  <a class="brand" href="index.html" aria-label="Amos Abiodun, home"><img class="logo--dark" src="img/logo-dark.png" alt="" width="30" height="30"><img class="logo--light" src="img/logo-light.png" alt="" width="30" height="30">Amos Abiodun</a>
+  <nav class="nav" aria-label="Main"><a href="projects.html" aria-current="page">Projects</a><a href="expertise.html">Expertise</a><a href="about.html">About</a><a href="speaking.html">Speaking</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a></nav>
+  <div class="head-tools"><button class="theme-btn" type="button" aria-label="Switch between dark and light mode"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></button><button class="menu-btn" data-menu="open" aria-label="Open menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg></button></div>
+</header>
+<div class="drawer" aria-label="Menu">
+  <div class="drawer__top">
+    <a class="brand" href="index.html"><img class="logo--dark" src="img/logo-dark.png" alt="" width="30" height="30"><img class="logo--light" src="img/logo-light.png" alt="" width="30" height="30">Amos Abiodun</a>
+    <div class="head-tools"><button class="theme-btn" type="button" aria-label="Switch between dark and light mode"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></button><button class="menu-btn" data-menu="close" aria-label="Close menu" style="display:grid"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+  </div>
+  <nav aria-label="Mobile"><a href="projects.html">Projects<span>01</span></a><a href="expertise.html">Expertise<span>02</span></a><a href="about.html">About<span>03</span></a><a href="speaking.html">Speaking<span>04</span></a><a href="gallery.html">Gallery<span>05</span></a><a href="contact.html">Contact<span>06</span></a></nav>
+  <div class="drawer__foot"><a href="https://wa.me/2348086130089">WhatsApp</a><a href="https://linkedin.com/in/abiodun-amos">LinkedIn</a><a href="https://github.com/Abiodun-Amos">GitHub</a><a href="mailto:abiodunamos59@gmail.com">abiodunamos59@gmail.com</a></div>
+</div>
+<main id="main">
+<section class="phead" data-word="03">
+  <p class="eyebrow fade"><b>03</b>Case study</p>
+  <h1 class="h-xl"><span><i style="--i:0">AI Facial Recognition</i></span><span><i style="--i:1">Attendance System</i></span></h1>
+  <p class="lead fade">An automated attendance system that recognises faces with computer vision, replacing manual registers with a faster and more secure record.</p>
+</section>
+<section class="wrap">
+  <dl class="case__meta reveal">
+    <div><dt>Category</dt><dd>Artificial Intelligence and Computer Vision</dd></div>
+    <div><dt>Year</dt><dd>2026</dd></div>
+    <div><dt>My role</dt><dd>Final-year project</dd></div>
+    <div><dt>Status</dt><dd>Live</dd></div>
+  </dl>
+</section>
+<section class="section wrap" style="padding-bottom:0"><div class="case__hero clip"><img src="img/proj-attendance.jpg" alt="FRAS live overview dashboard showing attendance figures and today's sessions"></div></section>
+<section class="section wrap">
+  <div class="case__grid">
+    <h2 class="reveal">The problem</h2><div class="case__txt reveal"><p>Paper registers and manual roll calls are slow, easy to falsify and hard to audit. Institutions need attendance records they can trust without adding work for staff.</p></div>
+    <h2 class="reveal">What I built</h2><div class="case__txt reveal"><p>For my final-year project in Electrical/Electronic Engineering I designed and implemented an automated attendance management system built on artificial intelligence and computer vision.</p><p>I developed the facial detection and recognition algorithms that identify each person and record their attendance, giving a seamless, secure and efficient alternative to manual tracking. Administrators review sessions and records through a web dashboard.</p></div>
+    <h2 class="reveal">What it does</h2><div class="case__txt reveal"><ul class="ticks"><li>Facial detection and recognition for check-in</li><li>Automatic attendance records per session</li><li>A live overview with intruder alerts and attendance rate</li><li>CSV export of records</li><li>An admin dashboard for review</li></ul></div>
+    <h2 class="reveal">Tools and technologies</h2><div class="case__txt reveal"><ul class="tags"><li>Computer vision</li><li>Facial detection</li><li>Facial recognition</li><li>Raspberry Pi 4</li><li>Web admin dashboard</li><li>Firebase</li></ul></div>
+    <h2 class="reveal">See it running</h2><div class="case__txt reveal"><a class="btn" href="https://ai-facial-recognition-system.firebaseapp.com/"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>Open the admin dashboard (login required)</a><p class="note">The dashboard is protected by a login because it holds attendance records. Contact me for a walkthrough.</p></div>
+  </div>
+</section>
+<section class="section wrap" style="padding-top:0">
+  <p class="eyebrow reveal"><b>+</b>Inside the build</p>
+  <div class="gal gal--shots"><button class="gal__item reveal" data-full="img/shot-attendance-wiring.jpg" data-caption="Logitech C270 webcam, Raspberry Pi 4, cooling fan and an 18650 UPS module" style="--d:0"><img src="img/shot-attendance-wiring.jpg" alt="Logitech C270 webcam, Raspberry Pi 4, cooling fan and an 18650 UPS module" loading="lazy"><span class="gal__cap"><small>Wiring</small>Logitech C270 webcam, Raspberry Pi 4, cooling fan and an 18650 UPS module</span></button><button class="gal__item reveal" data-full="img/build-camera.jpg" data-caption="Camera on the workbench during the build" style="--d:1"><img src="img/build-camera.jpg" alt="Camera on the workbench during the build" loading="lazy"><span class="gal__cap"><small>Hardware</small>Camera on the workbench during the build</span></button><button class="gal__item reveal" data-full="img/build-sbc.jpg" data-caption="Single-board computer with a battery pack in its enclosure" style="--d:0"><img src="img/build-sbc.jpg" alt="Single-board computer with a battery pack in its enclosure" loading="lazy"><span class="gal__cap"><small>Hardware</small>Single-board computer with a battery pack in its enclosure</span></button></div>
+</section>
+<div class="lb" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <div class="lb__bar"><span class="lb__count">1 / 1</span><button data-lb="close" aria-label="Close viewer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+  <div class="lb__stage"><img src="" alt=""></div>
+  <div class="lb__foot"><p></p><div class="lb__nav"><button data-lb="prev" aria-label="Previous image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button><button data-lb="next" aria-label="Next image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div></div>
+</div>
+<section class="section section--alt"><div class="wrap">
+  <p class="eyebrow reveal"><b>→</b>Next project</p>
+  <div class="next"><a class="big reveal" href="project-fruit.html">Smart Fruit Spoilage and Freshness Detection <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a><a class="link reveal" href="projects.html">All projects <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+</div></section>
+</main>
+<footer class="footer">
+  <div class="footer__top">
+    <div class="footer__id">
+      <img class="footer__logo logo--dark" src="img/logo-dark.png" alt="Amos Abiodun logo" width="120" height="120"><img class="footer__logo logo--light" src="img/logo-light.png" alt="Amos Abiodun logo" width="120" height="120">
+      <p>Amos Olaoluwa Abiodun. Electrical/Electronics engineer working across embedded systems, IoT, machine learning and data science. Based in Ibadan, Nigeria.</p>
+    </div>
+    <div class="footer__col"><h4>Site</h4><a href="index.html">Home</a><a href="projects.html">Projects</a><a href="expertise.html">Expertise</a><a href="about.html">About</a></div>
+    <div class="footer__col"><h4>More</h4><a href="speaking.html">Speaking</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a></div>
+    <div class="footer__col"><h4>Connect</h4><a href="https://linkedin.com/in/abiodun-amos">LinkedIn</a><a href="https://github.com/Abiodun-Amos">GitHub</a><a href="https://wa.me/2348086130089">WhatsApp</a><a href="mailto:abiodunamos59@gmail.com">Email</a></div>
+  </div>
+  <div class="footer__bot">
+    <span>© 2026 Amos Olaoluwa Abiodun. All rights reserved.</span>
+    <a class="totop" href="#main">Back to top <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></i></a>
+  </div>
+</footer>
+<script src="js/site.js"></script>
+</body>
+</html>
