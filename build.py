@@ -17,6 +17,8 @@ def ico(d):
     return f'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{d}"/></svg>'
 ARROW = ico("M5 12h14M13 6l6 6-6 6")
 UPRIGHT = ico("M7 17 17 7M8 7h9v9")
+DL = ico("M12 4v11M7 10l5 5 5-5M5 20h14")
+CV = "Amos_Abiodun_CV.pdf"  # the CV file in dist/. Replace that file to update the download.
 PLUS = ico("M12 5v14M5 12h14")
 MENU = ico("M4 8h16M4 16h16")
 CLOSE = ico("M6 6l12 12M18 6 6 18")
@@ -25,6 +27,7 @@ LEFT = ico("M19 12H5M11 6l-6 6 6 6")
 SUN = '<svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>'
 MOON = '<svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>'
 LOGO = '<img class="logo--dark" src="img/logo-dark.png" alt="" width="30" height="30"><img class="logo--light" src="img/logo-light.png" alt="" width="30" height="30">'
+CV_BTN = f'<a class="cv-btn" href="{CV}" download aria-label="Download my CV (PDF)"><span>CV</span>{DL}</a>'
 THEME_BTN = f'<button class="theme-btn" type="button" aria-label="Switch between dark and light mode">{SUN}{MOON}</button>'
 
 NAV = [("projects.html", "Projects"), ("expertise.html", "Expertise"), ("about.html", "About"),
@@ -92,12 +95,13 @@ PROJECTS = [
          shots=[("shot-fruit-inventory.jpg","Dashboard","Inventory view listing each fruit with its status, days left and recent alerts"),
                 ("shot-fruit-charts.jpg","Sensor data","Temperature, humidity and MQ-135 gas readings plotted over time"),
                 ("shot-fruit-circuit.jpg","Circuit","ESP32 wired to a DHT22 sensor, a gas sensor and an ESP32-CAM"),
+                ("shot-fruit-fritzing.jpg","Circuit","The circuit drawn in Fritzing: ESP32, gas sensor, DHT sensor, ESP32-CAM and two 18650 batteries"),
                 ("shot-fruit-camera.jpg","Camera","View from the ESP32-CAM over the fruit tray")], cat="iot ai", year="2026",
          title="Smart Fruit Spoilage and Freshness Detection",
          catlabel="IoT and Machine Learning", role="Design, hardware and model",
          short="An IoT system that reads environmental sensors around stored fruit and uses a machine learning model to predict freshness and shelf life in real time.",
          tools=["ESP32", "DHT22 sensor", "MQ-135 gas sensor", "ESP32-CAM", "Machine learning", "Python", "Live web dashboard"],
-         live="https://fruit-monitor.onrender.com/dashboard/", livelabel="Open the live dashboard",
+         live="https://fruit-monitor.onrender.com/dashboard/", livelabel="Open the live dashboard", liveshort="Live dashboard",
          problem=["Fruit loses value quickly once it starts to spoil, and by the time spoilage is visible the loss has already happened. Traders and stores need an early signal, not a late one."],
          built=["I developed an integrated IoT system that uses environmental sensors to monitor the conditions that indicate food and agricultural produce is degrading.",
                 "On top of the sensor data I built and deployed a machine learning model that analyses readings in real time and predicts food freshness and shelf life. The readings and predictions are shown on a live web dashboard."],
@@ -109,7 +113,7 @@ PROJECTS = [
          catlabel="Machine Learning and Data Science", role="Data analysis and modelling",
          short="A predictive model that learns from telecommunications network data to forecast traffic congestion before it happens.",
          tools=["Python", "pandas", "scikit-learn", "Decision Tree models", "seaborn", "Streamlit"],
-         live="https://network-congestion-prediction.onrender.com/", livelabel="Open the live app",
+         live="https://network-congestion-prediction.onrender.com/", livelabel="Open the live app", liveshort="Live app",
          problem=["Network congestion slows calls and data for everyone on a cell. Operators who can see congestion coming can act earlier, by rerouting traffic or adding capacity."],
          built=["I developed a predictive model, optimised for telecommunications network data, that forecasts network traffic congestion so it can be mitigated.",
                 "I implemented and evaluated machine learning architectures, including Decision Tree models, using Python data science and visualisation libraries. The model runs as a web app that takes network conditions and returns a prediction."],
@@ -123,7 +127,7 @@ PROJECTS = [
          catlabel="Artificial Intelligence and Computer Vision", role="Final-year project",
          short="An automated attendance system that recognises faces with computer vision, replacing manual registers with a faster and more secure record.",
          tools=["Computer vision", "Facial detection", "Facial recognition", "Raspberry Pi 4", "Web admin dashboard", "Firebase"],
-         live="https://ai-facial-recognition-system.firebaseapp.com/", livelabel="Open the admin dashboard (login required)",
+         live="https://ai-facial-recognition-system.firebaseapp.com/", livelabel="Open the admin dashboard (login required)", liveshort="Admin dashboard (login)",
          problem=["Paper registers and manual roll calls are slow, easy to falsify and hard to audit. Institutions need attendance records they can trust without adding work for staff."],
          built=["For my final-year project in Electrical/Electronic Engineering I designed and implemented an automated attendance management system built on artificial intelligence and computer vision.",
                 "I developed the facial detection and recognition algorithms that identify each person and record their attendance, giving a seamless, secure and efficient alternative to manual tracking. Administrators review sessions and records through a web dashboard."],
@@ -174,7 +178,7 @@ def head(title, desc, active):
 <header class="header">
   <a class="brand" href="index.html" aria-label="Amos Abiodun, home">{LOGO}Amos Abiodun</a>
   <nav class="nav" aria-label="Main">{nav}</nav>
-  <div class="head-tools">{THEME_BTN}<button class="menu-btn" data-menu="open" aria-label="Open menu" aria-expanded="false">{MENU}</button></div>
+  <div class="head-tools">{CV_BTN}{THEME_BTN}<button class="menu-btn" data-menu="open" aria-label="Open menu" aria-expanded="false">{MENU}</button></div>
 </header>
 <div class="drawer" aria-label="Menu">
   <div class="drawer__top">
@@ -182,7 +186,7 @@ def head(title, desc, active):
     <div class="head-tools">{THEME_BTN}<button class="menu-btn" data-menu="close" aria-label="Close menu" style="display:grid">{CLOSE}</button></div>
   </div>
   <nav aria-label="Mobile">{drawer}</nav>
-  <div class="drawer__foot"><a href="{WA}">WhatsApp</a><a href="{LINKEDIN}">LinkedIn</a><a href="{GITHUB}">GitHub</a><a href="mailto:{EMAIL}">{EMAIL}</a></div>
+  <div class="drawer__foot"><a href="{CV}" download>Download CV</a><a href="{WA}">WhatsApp</a><a href="{LINKEDIN}">LinkedIn</a><a href="{GITHUB}">GitHub</a><a href="mailto:{EMAIL}">{EMAIL}</a></div>
 </div>
 <main id="main">
 '''
@@ -197,6 +201,7 @@ def cta_section():
     <a class="btn" href="contact.html"><span class="ico">{ARROW}</span>Start a conversation</a>
     <a class="btn btn--ghost" href="{WA}">Chat on WhatsApp</a>
     <a class="btn btn--ghost" href="speaking.html">Invite me to speak</a>
+    <a class="btn btn--ghost" href="{CV}" download>Download my CV</a>
   </div>
 </section>'''
 
@@ -212,7 +217,7 @@ def foot():
     </div>
     <div class="footer__col"><h4>Site</h4><a href="index.html">Home</a>{nav}</div>
     <div class="footer__col"><h4>More</h4>{nav2}</div>
-    <div class="footer__col"><h4>Connect</h4><a href="{LINKEDIN}">LinkedIn</a><a href="{GITHUB}">GitHub</a><a href="{WA}">WhatsApp</a><a href="mailto:{EMAIL}">Email</a></div>
+    <div class="footer__col"><h4>Connect</h4><a href="{CV}" download>Download CV</a><a href="{LINKEDIN}">LinkedIn</a><a href="{GITHUB}">GitHub</a><a href="{WA}">WhatsApp</a><a href="mailto:{EMAIL}">Email</a></div>
   </div>
   <div class="footer__bot">
     <span>© 2026 Amos Olaoluwa Abiodun. All rights reserved.</span>
@@ -305,7 +310,7 @@ def work_items(items):
     <h3><a href="{p["slug"]}.html">{p["title"]}</a></h3>
     <p>{p["short"]}</p>
     {tags(p["tools"][:4])}
-    <a class="link" href="{p["slug"]}.html">View project {UPRIGHT}</a>
+    <div class="work__links"><a class="link" href="{p["slug"]}.html">View project {UPRIGHT}</a><a class="link" href="{p["live"]}" target="_blank" rel="noopener">{p["liveshort"]} {UPRIGHT}</a></div>
   </div>
 </article>''')
     out.append("</div>")
@@ -341,6 +346,7 @@ def page_home():
     <div class="hero__cta fade" style="--i:2">
       <a class="btn" href="projects.html"><span class="ico">{ARROW}</span>Explore my work</a>
       <a class="link" href="contact.html">Let's connect {UPRIGHT}</a>
+      <a class="link" href="{CV}" download>Download CV {DL}</a>
     </div>
   </div>
 </section>
@@ -407,14 +413,39 @@ def page_projects():
     more = [("build-rfid.jpg", "ESP32 build with an RFID reader, keypad and display"), ("build-drone.jpg", "Drone and controller on the workbench"),
             ("build-sbc.jpg", "Single-board computer with a battery pack in an enclosure"), ("build-meter.jpg", "Energy meter prototype with a GSM link")]
     grid = "".join(f'<a class="gal__item reveal" href="gallery.html" style="--d:{i}"><img src="img/{f}" alt="{c}" loading="lazy"><span class="gal__cap"><small>Bench build</small>{c}</span></a>' for i, (f, c) in enumerate(more))
-    others = [("more-emeter.jpg", "Smart Prepaid Energy Meter", "Real-time monitoring and remote prepaid credit management, with live readings and relay control."),
-              ("more-energy.jpg", "SmartEnergyPro", "An energy dashboard showing real-time load, temperature and energy used, with switches for individual bulbs and sockets."),
-              ("more-weather.jpg", "Smart Weather Reporting System", "An Arduino circuit with sensors and an LCD, designed and simulated in Tinkercad."),
-              ("more-collect.jpg", "CollectAI", "A group collection tracker that takes spoken or typed commands and shows how many members have paid.")]
-    cards = "".join(f'<article class="pcard reveal" style="--d:{i%2}"><button class="pcard__img" data-full="img/{f}" data-caption="{html.escape(t)}" aria-label="View {html.escape(t)} full size"><img src="img/{f}" alt="{html.escape(t)} screen" loading="lazy"></button><h3>{t}</h3><p>{d}</p></article>' for i, (f, t, d) in enumerate(others))
+    others = [
+        dict(img="more-emeter.jpg", title="Smart Prepaid Energy Meter", desc="Real-time monitoring and remote prepaid credit management, with live readings and relay control.",
+             link="https://emeter.onrender.com/", label="Live dashboard"),
+        dict(img="more-energy.jpg", title="SmartEnergyPro", desc="A smart home energy controller: an ESP32 with relay modules switches two lamps and two sockets, and the dashboard shows real-time load, temperature and energy used.",
+             thumbs=[("build-energy-box.jpg", "The SmartEnergyPro box with two lamp holders and two switched sockets"), ("build-energy-inside.jpg", "Inside: an ESP32 wired to relay modules and sensors"),
+                     ("build-energy-lamps.jpg", "Testing: both lamps on"), ("build-energy-sockets.jpg", "Testing: both sockets powered")]),
+        dict(img="more-weather.jpg", title="Smart Weather Reporting System", desc="An Arduino circuit with sensors and an LCD, designed and simulated in Tinkercad."),
+        dict(img="more-collect.jpg", title="CollectAI", desc="A group collection tracker that takes spoken or typed commands and shows how many members have paid."),
+    ]
+    def pcard(i, o):
+        t = html.escape(o["title"])
+        img = f'<button class="pcard__img" data-full="img/{o["img"]}" data-caption="{t}" aria-label="View {t} full size"><img src="img/{o["img"]}" alt="{t} screen" loading="lazy"></button>' if o.get("img") else f'<a class="pcard__img pcard__img--text" href="{o["link"]}" target="_blank" rel="noopener"><b>{o["brand"]}</b><span>{o["tagline"]}</span></a>'
+        th = "".join(f'<button class="pcard__thumb" data-full="img/{f}" data-caption="{html.escape(c)}" aria-label="{html.escape(c)}"><img src="img/{f}" alt="{html.escape(c)}" loading="lazy"></button>' for f, c in o.get("thumbs", []))
+        th = f'<div class="pcard__thumbs">{th}</div>' if th else ""
+        ln = f'<a class="link" href="{o["link"]}" target="_blank" rel="noopener">{o["label"]} {UPRIGHT}</a>' if o.get("link") else ""
+        return f'<article class="pcard reveal" style="--d:{i%2}">{img}{th}<h3>{o["title"]}</h3><p>{o["desc"]}</p>{ln}</article>'
+    cards = "".join(pcard(i, o) for i, o in enumerate(others))
+    webs = [
+        dict(title="Loft Essence", brand="Loft Essence", tagline="Print It. Brand It. Own It.", link="https://loftessence.vercel.app/", label="Visit site",
+             desc="Website for a custom printing and branding business in Ibadan, with services, a shop, gallery, FAQ, quote requests and WhatsApp ordering."),
+        dict(img="web-prixima.jpg", title="Prixima", link="https://prixima-project.vercel.app/", label="Visit site",
+             desc="Agency website built with Bootstrap 5: hero slider, services, portfolio, team, reviews, blog and a contact form."),
+        dict(img="web-bootcamp.jpg", title="Frontend Bootcamp", link="https://frontend-bootcamp.vercel.app/", label="Visit site",
+             desc="Course landing page for a web development bootcamp, with what you'll learn, questions, instructors and a newsletter sign-up."),
+        dict(img="web-edgeledger.jpg", title="EdgeLedger", link="https://edgeledger-three.vercel.app/", label="Visit site",
+             desc="Landing page with a full-width city hero, navigation and a call to action."),
+        dict(img="web-hotel.jpg", title="Hotel website", link="https://hotel-website-psi.vercel.app/", label="Visit site",
+             desc="Hotel landing page with a photo hero and Home, About and Contact sections."),
+    ]
+    webcards = "".join(pcard(i, o) for i, o in enumerate(webs))
     return head("Projects by Amos Abiodun", "Case studies in IoT, machine learning, computer vision and data science by Amos Abiodun.", "projects.html") + phead(
         "Work", ("01", "Projects"), ["Selected", "projects"],
-        "Three case studies with live systems you can open, more software and simulation work, and builds from the workbench. I have built more than 20 projects; these are the ones I can show.") + f'''
+        "Three case studies with live systems you can open, more hardware and software projects, websites I have built, and builds from the workbench. I have built more than 20 projects; these are the ones I can show.") + f'''
 <section class="section wrap" style="padding-top:0">
   <div class="filters" data-target=".work__item" role="group" aria-label="Filter projects">
     <button aria-pressed="true" data-filter="all">All</button>
@@ -429,8 +460,16 @@ def page_projects():
   <h2 class="h-lg reveal" style="margin-bottom:clamp(32px,5vw,60px)">Also built.</h2>
   <div class="pcards">{cards}</div>
 </section>
+<section class="section wrap" style="padding-top:0">
+  {eyebrow("03", "Web design")}
+  <div class="next" style="margin-bottom:clamp(32px,5vw,60px)">
+    <h2 class="h-lg reveal">Websites.</h2>
+    <a class="link reveal" href="{GITHUB}" target="_blank" rel="noopener">GitHub {UPRIGHT}</a>
+  </div>
+  <div class="pcards">{webcards}</div>
+</section>
 <section class="section section--alt"><div class="wrap">
-  {eyebrow("03", "From the workbench")}
+  {eyebrow("04", "From the workbench")}
   <div class="next" style="margin-bottom:clamp(32px,5vw,60px)">
     <h2 class="h-lg reveal">Hardware builds.</h2>
     <a class="link reveal" href="gallery.html">Open the gallery {UPRIGHT}</a>
@@ -465,7 +504,7 @@ def page_case(p, nxt):
     <h2 class="reveal">What I built</h2><div class="case__txt reveal">{built}</div>
     <h2 class="reveal">What it does</h2><div class="case__txt reveal"><ul class="ticks">{pts}</ul></div>
     <h2 class="reveal">Tools and technologies</h2><div class="case__txt reveal">{tags(p["tools"])}</div>
-    <h2 class="reveal">See it running</h2><div class="case__txt reveal"><a class="btn" href="{p["live"]}"><span class="ico">{UPRIGHT}</span>{p["livelabel"]}</a><p class="note">{p["note"]}</p></div>
+    <h2 class="reveal">See it running</h2><div class="case__txt reveal"><a class="btn" href="{p["live"]}" target="_blank" rel="noopener"><span class="ico">{UPRIGHT}</span>{p["livelabel"]}</a><p class="note">{p["note"]}</p></div>
   </div>
 </section>
 <section class="section wrap" style="padding-top:0">
@@ -497,19 +536,21 @@ def page_expertise():
 
 TIMELINE = [
     ("2026 to now", "Lead STEM Instructor", "Talent Code Africa, at Lead British International School, Ibadan",
-     "I lead the STEM and robotics programme across ten year groups, primary Year 1 to 6 and secondary Year 7, 8, 10 and 11. I plan the curriculum, write the project guides, and run the practical sessions with Arduino starter kits and LEGO WeDo 2.0."),
-    ("2026", "B.Sc. Electrical/Electronic Engineering", "Olabisi Onabanjo University, Ibogun Campus",
+     "I lead the STEM and robotics programme for more than 200 students across ten year groups, primary Year 1 to 6 and secondary Year 7, 8, 10 and 11. I plan the curriculum, write the project guides, and run the practical sessions with Arduino starter kits and LEGO WeDo 2.0."),
+    ("2026", "Machine Learning Engineer (contract)", "Freelance, paid client project",
+     "Built and deployed a decision tree model that predicts congestion on telecom network data with accuracy above 85%, and a web app that maps congestion risk by location and recommends an action for each."),
+    ("2026", "B.Eng. Electrical/Electronics Engineering, Second Class Upper (2:1)", "Olabisi Onabanjo University, Ibogun Campus",
      "Final-year project: an AI facial recognition attendance system. In June 2026 my team took first position at the university's Inter-Faculty Competition for Research Innovations, and I pitched at the Nigeria Energy Forum student energy pitch challenge."),
-    ("2025 to 2026", "Lead STEM and Robotics Instructor", "FebDec Technologies",
-     "Designed and managed a 12-week robotics and hardware engineering training programme with a co-trainer, covering microcontroller architectures, sensor integration and circuit design. Led STEM outreach to secondary schools with live demonstrations."),
+    ("2025 to 2026", "STEM and Robotics Instructor (contract)", "FebDec Technologies",
+     "Designed and ran a 12-week robotics and hardware engineering training programme for 33 students with a co-trainer, covering microcontroller architectures, sensor integration and circuit design. Led STEM outreach to secondary schools with live demonstrations."),
     ("2025 to 2026", "General Secretary", "NIEEESA, Olabisi Onabanjo University chapter",
      "Chief administrative officer of the departmental student association. Planned and ran NIEEESA Week, including a technical symposium and skill-acquisition sessions, and moderated its panel discussions."),
     ("2025", "SIWES Intern", "Nigerian Airspace Management Agency (NAMA), Ibadan Airport",
      "Took part in installing and maintaining VSAT systems, and worked with aviation equipment including VHF radios, Instrument Landing Systems, VOR and voice communication equipment. Learned how redundancy and safety shape engineering in aviation."),
-    ("2024", "Educator", "Build-A-Thon Holiday Camp, National Centre for Artificial Intelligence and Robotics (NCAIR)",
+    ("2024", "Facilitator", "Build-A-Thon Holiday Camp, National Centre for Artificial Intelligence and Robotics (NCAIR)",
      "Trained students in foundational robotics and AI concepts with hands-on electronics and programming on single-board computers, and mentored a team through their AI tasks."),
-    ("2024", "First place, data science and machine learning competition", "Data Science Nigeria, TRAIL and exploreCSR",
-     "Also ranked first on the Zindi leaderboard, and completed TRAIL (The Route to Artificial Intelligence Learning) training in research methodology, data literacy, Excel, Power BI and Python for data science."),
+    ("2024", "First place, 1st of 23, TRAIL OOU x DSN data science competition", "Data Science Nigeria, TRAIL and exploreCSR, on Zindi",
+     "Built the top-ranked model for predicting which customers will default on a loan. Also completed TRAIL (The Route to Artificial Intelligence Learning) training in research methodology, data literacy, Excel, Power BI and Python for data science."),
     ("2020", "Senior Secondary School Certificate", "Loyola College, Ibadan",
      "Assistant Health Prefect. Cleared O'level results in a single sitting."),
 ]
@@ -517,14 +558,18 @@ AWARDS = [
     ("2026", "First position, Inter-Faculty Competition for Research Innovations", "Directorate of Research, Olabisi Onabanjo University. Team award, 17 June 2026."),
     ("2026", "Institutional representative, Student Energy Pitch Challenge", "Nigeria Energy Forum, Lagos. 30 June 2026."),
     ("2026", "Institutional representative, BUESA Competition", "Bells University Engineering Students' Association technical exhibition."),
-    ("2024", "First place, Data Science and Machine Learning Competition", "Organised by Data Science Nigeria, TRAIL and exploreCSR."),
-    ("2024", "Ranked first on the leaderboard", "Zindi certificate."),
+    ("2026", "Certificate, Introduction to Safeguarding and Child Protection", "Lagos State Domestic and Sexual Violence Agency (DSVA) and Office of Education Quality Assurance (OEQA). 15 September 2026."),
+    ("2025", "Elected General Secretary, NIEEESA", "Olabisi Onabanjo University chapter. Election held 11 December 2025."),
+    ("2024", "First place, 1st of 23, TRAIL OOU x DSN data science competition", "Predicting which customers will default on a loan, on Zindi. Organised by Data Science Nigeria, TRAIL and exploreCSR. 3 May 2024."),
     ("2024", "Certificate of participation, TRAIL", "The Route to Artificial Intelligence Learning, Olabisi Onabanjo University."),
     ("2020", "Beneficiary, LOCOBA Class '98 exam fee funding", "One of 15 students selected on merit by the Loyola College Old Boys Association."),
 ]
 CERTS = [
     ("cert-nef.jpg", "Nigeria Energy Forum 2026", "Certificate of participation, Day 1, 30 June 2026", "Nigeria Energy Forum 2026 certificate of participation awarded to Abiodun Amos"),
     ("award-research.jpg", "First position, Research Innovations", "OOU Directorate of Research, 17 June 2026", "Amos holding the first position trophy and cheque at the OOU Inter-Faculty Competition for Research Innovations"),
+    ("cert-zindi.jpg", "First place, 1st of 23", "TRAIL OOU x DSN data science competition on Zindi, 3 May 2024", "Zindi certificate: first place out of 23 in the TRAIL OOU x DSN Data Science Training, predicting customers who will default on a loan"),
+    ("cert-safeguarding.jpg", "Safeguarding and Child Protection", "Lagos State DSVA and OEQA, 15 September 2026", "Certificate of achievement for completing Introduction to Safeguarding and Child Protection"),
+    ("cert-gensec.jpg", "General Secretary, NIEEESA", "Certificate of return, election of 11 December 2025", "Certificate of return to office as General Secretary of NIEEESA, Olabisi Onabanjo University"),
 ]
 
 def page_about():
@@ -544,7 +589,7 @@ def page_about():
       <p class="body reveal">I trained on aviation communication and navigation systems at the Nigerian Airspace Management Agency, and in 2026 my team took first position at my university's Inter-Faculty Competition for Research Innovations.</p>
       <p class="body reveal">I also speak and moderate at technology events, and as a STEM Instructor I have trained more than 300 students in robotics and electronics.</p>
       <p class="body reveal">I speak English and Yoruba.</p>
-      <div class="cta__row reveal"><a class="btn" href="projects.html"><span class="ico">{ARROW}</span>See my projects</a><a class="link" href="{LINKEDIN}">LinkedIn {UPRIGHT}</a></div>
+      <div class="cta__row reveal"><a class="btn" href="projects.html"><span class="ico">{ARROW}</span>See my projects</a><a class="btn btn--ghost" href="{CV}" download>Download my CV</a><a class="link" href="{LINKEDIN}">LinkedIn {UPRIGHT}</a></div>
     </div>
   </div>
 </section>
@@ -606,6 +651,19 @@ def page_speaking():
 
 GALLERY = [
     # (file in dist/img, filter categories, label, caption). To add a photo: put it in dist/img and add a line here.
+    ("build-energy-box.jpg", "builds", "Builds", "SmartEnergyPro: two lamp holders and two switched sockets, one labelled Fan, in a single enclosure."),
+    ("cert-zindi.jpg", "awards", "Awards", "First place, 1st of 23, TRAIL OOU x DSN Data Science Training on Zindi: predicting customers who will default on a loan, 3 May 2024."),
+    ("train-build.jpg", "training", "STEM instruction", "Demonstrating a build step with a glue gun, with the step-by-step guide on the board behind."),
+    ("build-energy-inside.jpg", "builds", "Builds", "Inside SmartEnergyPro: an ESP32 wired to relay modules and sensors."),
+    ("code-jupyter.jpg", "code", "Code", "Working with NumPy arrays in a Jupyter notebook."),
+    ("build-esp32.jpg", "builds", "Builds", "An ESP32-WROOM-32D development board powered up inside a project enclosure."),
+    ("cert-safeguarding.jpg", "awards", "Certificates", "Introduction to Safeguarding and Child Protection, Lagos State DSVA and OEQA, 15 September 2026."),
+    ("build-energy-lamps.jpg", "builds", "Builds", "Testing SmartEnergyPro: both lamps on."),
+    ("code-pictoblox.jpg", "code training", "Code", "A paddle-and-ball game with a score, built with blocks in PictoBlox."),
+    ("shot-fruit-fritzing.jpg", "builds", "Builds", "The AgroCool+ circuit drawn in Fritzing: ESP32, gas sensor, DHT sensor, ESP32-CAM and two 18650 batteries."),
+    ("build-energy-sockets.jpg", "builds", "Builds", "Testing SmartEnergyPro: both sockets powered."),
+    ("cert-gensec.jpg", "awards", "Leadership", "Certificate of return: elected General Secretary of NIEEESA, Olabisi Onabanjo University, 11 December 2025."),
+    ("build-nodemcu.jpg", "builds", "Builds", "A NodeMCU V3 (ESP8266) board connected for programming in the Arduino IDE."),
     ("field-vsat.jpg", "field", "Field", "Working on the electronics of a satellite dish (VSAT) installation."),
     ("award-research.jpg", "awards", "Awards", "First position at the Inter-Faculty Competition for Research Innovations, OOU Directorate of Research, 17 June 2026."),
     ("build-meter.jpg", "builds", "Builds", "An energy meter prototype showing energy, power, voltage and current, with a GSM link."),
@@ -649,6 +707,7 @@ def page_gallery():
     <button aria-pressed="false" data-filter="robotics">Robotics</button>
     <button aria-pressed="false" data-filter="speaking">Speaking</button>
     <button aria-pressed="false" data-filter="training">STEM instruction</button>
+    <button aria-pressed="false" data-filter="code">Code</button>
     <button aria-pressed="false" data-filter="awards">Awards and certificates</button>
     <button aria-pressed="false" data-filter="portraits">Portraits</button>
   </div>
@@ -671,6 +730,7 @@ def page_contact():
         <li class="reveal"><a href="mailto:{EMAIL}"><small>Email</small><b>{EMAIL}</b>{UPRIGHT}</a></li>
         <li class="reveal"><a href="{WA}"><small>WhatsApp</small><b>Chat with me on WhatsApp</b>{UPRIGHT}</a></li>
         <li class="reveal"><a href="tel:{PHONE_TEL}"><small>Phone</small><b>{PHONE_SHOW}</b>{UPRIGHT}</a></li>
+        <li class="reveal"><a href="{CV}" download><small>CV</small><b>Download my CV (PDF)</b>{DL}</a></li>
         <li class="reveal"><a href="{LINKEDIN}"><small>LinkedIn</small><b>linkedin.com/in/abiodun-amos</b>{UPRIGHT}</a></li>
         <li class="reveal"><a href="{GITHUB}"><small>GitHub</small><b>github.com/Abiodun-Amos</b>{UPRIGHT}</a></li>
       </ul>
@@ -738,7 +798,7 @@ for name, body in pages.items():
     if name == "404.html":
         body = body.replace('<meta name="robots" content="index, follow">\n', "").replace('href="css/', 'href="/css/').replace('src="js/', 'src="/js/').replace('src="img/', 'src="/img/').replace('href="favicon', 'href="/favicon').replace('href="img/', 'href="/img/')
         for h, _ in NAV: body = body.replace(f'href="{h}"', f'href="/{h}"')
-        body = body.replace('href="index.html"', 'href="/index.html"')
+        body = body.replace('href="index.html"', 'href="/index.html"').replace(f'href="{CV}"', f'href="/{CV}"')
     (OUT / name).write_text(body, encoding="utf-8")
     print(name, len(body) // 1024, "KB")
 

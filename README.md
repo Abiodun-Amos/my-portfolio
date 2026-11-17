@@ -46,3 +46,17 @@ After the site is live, add it to Google Search Console (search.google.com/searc
 1. Add the domain in Netlify's domain settings and make it the primary domain. Netlify then redirects the old netlify.app address to it.
 2. Change `SITE_URL` at the top of `build.py` to `https://amosabiodun.com`, run `python3 build.py`, and push the changes to GitHub.
 3. Add the new domain to Google Search Console and submit the sitemap again.
+
+## Updating the live site
+
+The live site is built by Netlify from your GitHub repository, so any change you push to GitHub goes live about a minute later.
+
+1. Make the change (edit `build.py` and run `python3 build.py`, or replace files in `dist/`).
+2. On GitHub, open the repository, choose Add file, then Upload files, and drag in the changed files with the same folder structure (for example the `dist` folder). Files with the same name are replaced.
+3. Write a short commit message and choose Commit changes.
+
+With Git on your computer instead: `git add .`, then `git commit -m "Describe the change"`, then `git push`.
+
+## Updating your CV
+
+The download buttons point to `dist/Amos_Abiodun_CV.pdf`. To update the CV, replace that file with the new PDF, keeping the same file name, and push it to GitHub.
