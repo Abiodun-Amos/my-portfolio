@@ -98,15 +98,15 @@ PROJECTS = [
                 ("shot-fruit-fritzing.jpg","Circuit","The circuit drawn in Fritzing: ESP32, gas sensor, DHT sensor, ESP32-CAM and two 18650 batteries"),
                 ("shot-fruit-camera.jpg","Camera","View from the ESP32-CAM over the fruit tray")], cat="iot ai", year="2026",
          title="Smart Fruit Spoilage and Freshness Detection",
-         catlabel="IoT and Machine Learning", role="Design, hardware and model",
+         catlabel="IoT and Machine Learning", role="Client project: design, hardware and model",
          short="An IoT system that reads environmental sensors around stored fruit and uses a machine learning model to predict freshness and shelf life in real time.",
          tools=["ESP32", "DHT22 sensor", "MQ-135 gas sensor", "ESP32-CAM", "Machine learning", "Python", "Live web dashboard"],
          live="https://fruit-monitor.onrender.com/dashboard/", livelabel="Open the live dashboard", liveshort="Live dashboard",
          problem=["Fruit loses value quickly once it starts to spoil, and by the time spoilage is visible the loss has already happened. Traders and stores need an early signal, not a late one."],
-         built=["I developed an integrated IoT system that uses environmental sensors to monitor the conditions that indicate food and agricultural produce is degrading.",
+         built=["For a client, I developed an integrated IoT system that uses environmental sensors to monitor the conditions that indicate food and agricultural produce is degrading.",
                 "On top of the sensor data I built and deployed a machine learning model that analyses readings in real time and predicts food freshness and shelf life. The readings and predictions are shown on a live web dashboard."],
-         points=["Temperature, humidity and gas sensors feeding live data", "A camera view of the fruit in storage", "A deployed model that predicts freshness and shelf life", "An inventory with a status and alert for each fruit", "A dashboard anyone can open in a browser"],
-         note="This project was pitched as AgroCool+ at the Nigeria Energy Forum student energy pitch challenge in June 2026. The dashboard is hosted on a free plan, so the first visit can take up to a minute to load."),
+         points=["Temperature, humidity and gas sensors feeding live data", "A camera view of the fruit in storage", "A deployed model that predicts freshness and shelf life", "An inventory with a status and alert for each fruit", "Telegram and email alerts when fruit starts to spoil", "A dashboard anyone can open in a browser"],
+         note="The dashboard is hosted on a free plan, so the first visit can take up to a minute to load."),
     dict(slug="project-network", n="02", kind="network", img="proj-network.jpg", alt="Command Center view with a map of Lagos showing congestion risk and an action log",
          shots=[("shot-network-tree.jpg","Model","Decision tree from the notebook, with a recommended action at each leaf")], cat="ai data", year="2026",
          title="Nigerian Network Congestion Prediction System",
@@ -120,13 +120,13 @@ PROJECTS = [
          points=["A model trained on telecom network data", "Decision Tree models built and evaluated in scikit-learn", "A map view showing congestion risk by location", "An action log that can be downloaded as CSV", "A web app for trying predictions"],
          note="The app is hosted on a free plan, so the first visit can take up to a minute to load."),
     dict(slug="project-attendance", n="03", kind="face", img="proj-attendance.jpg", alt="FRAS live overview dashboard showing attendance figures and today's sessions",
-         shots=[("shot-attendance-wiring.jpg","Wiring","Logitech C270 webcam, Raspberry Pi 4, cooling fan and an 18650 UPS module"),
+         shots=[("shot-attendance-wiring.jpg","Wiring","Webcam, Orange Pi, cooling fan and a battery backup (UPS) module"),
                 ("build-camera.jpg","Hardware","Camera on the workbench during the build"),
                 ("build-sbc.jpg","Hardware","Single-board computer with a battery pack in its enclosure")], cat="ai", year="2026",
          title="AI Facial Recognition Attendance System",
          catlabel="Artificial Intelligence and Computer Vision", role="Final-year project",
          short="An automated attendance system that recognises faces with computer vision, replacing manual registers with a faster and more secure record.",
-         tools=["Computer vision", "Facial detection", "Facial recognition", "Raspberry Pi 4", "Web admin dashboard", "Firebase"],
+         tools=["Computer vision", "Facial detection", "Facial recognition", "Orange Pi", "Web admin dashboard", "Firebase"],
          live="https://ai-facial-recognition-system.firebaseapp.com/", livelabel="Open the admin dashboard (login required)", liveshort="Admin dashboard (login)",
          problem=["Paper registers and manual roll calls are slow, easy to falsify and hard to audit. Institutions need attendance records they can trust without adding work for staff."],
          built=["For my final-year project in Electrical/Electronic Engineering I designed and implemented an automated attendance management system built on artificial intelligence and computer vision.",
@@ -414,6 +414,8 @@ def page_projects():
             ("build-sbc.jpg", "Single-board computer with a battery pack in an enclosure"), ("build-meter.jpg", "Energy meter prototype with a GSM link")]
     grid = "".join(f'<a class="gal__item reveal" href="gallery.html" style="--d:{i}"><img src="img/{f}" alt="{c}" loading="lazy"><span class="gal__cap"><small>Bench build</small>{c}</span></a>' for i, (f, c) in enumerate(more))
     others = [
+        dict(title="AgroCool+", brand="AgroCool+", tagline="Multi-compartment smart freezer", link="https://github.com/Abiodun-Amos/AgroCool_Plus", label="View the code",
+             desc="An ESP32 freezer controller that holds a set temperature in each compartment so fruits and vegetables stay fresh longer, with phone monitoring and manual on/off. Pitched at the Nigeria Energy Forum, Lagos (2026)."),
         dict(img="more-emeter.jpg", title="Smart Prepaid Energy Meter", desc="Real-time monitoring and remote prepaid credit management, with live readings and relay control.",
              link="https://emeter.onrender.com/", label="Live dashboard"),
         dict(img="more-energy.jpg", title="SmartEnergyPro", desc="A smart home energy controller: an ESP32 with relay modules switches two lamps and two sockets, and the dashboard shows real-time load, temperature and energy used.",
@@ -585,7 +587,7 @@ def page_about():
     <div class="split__text">
       {eyebrow("→", "Biography")}
       <h2 class="h-md reveal">I am Amos Olaoluwa Abiodun, an Electrical/Electronics engineer based in Ibadan, Nigeria.</h2>
-      <p class="body reveal">My engineering work sits where hardware meets intelligent software: embedded systems, the Internet of Things, and machine learning. I have built an AI attendance system that recognises faces, an IoT system that predicts fruit spoilage, and a model that forecasts congestion on telecom networks.</p>
+      <p class="body reveal">My engineering work sits where hardware meets intelligent software: embedded systems, the Internet of Things, and machine learning. I have built an AI attendance system that recognises faces, an IoT system that predicts fruit spoilage, a multi-compartment smart freezer, and a model that forecasts congestion on telecom networks.</p>
       <p class="body reveal">I trained on aviation communication and navigation systems at the Nigerian Airspace Management Agency, and in 2026 my team took first position at my university's Inter-Faculty Competition for Research Innovations.</p>
       <p class="body reveal">I also speak and moderate at technology events, and as a STEM Instructor I have trained more than 300 students in robotics and electronics.</p>
       <p class="body reveal">I speak English and Yoruba.</p>
@@ -612,7 +614,7 @@ def page_about():
 TALKS = [
     ("01", "NIEEESA Week technical symposium", "Moderated panel discussions on emerging trends in technology and engineering. Olabisi Onabanjo University."),
     ("02", "Tech skill-acquisition events", "Spoke to engineering students about building practical skills alongside their degree."),
-    ("03", "Student Energy Pitch Challenge, Nigeria Energy Forum", "Represented Olabisi Onabanjo University, pitching an innovation for fruit storage, preservation and monitoring. Lagos, June 2026."),
+    ("03", "Student Energy Pitch Challenge, Nigeria Energy Forum", "Represented Olabisi Onabanjo University, pitching AgroCool+, a multi-compartment smart freezer that keeps fruits and vegetables fresh for longer. Lagos, June 2026."),
     ("04", "Inter-Faculty Competition for Research Innovations", "Presented research for the Electrical/Electronics Engineering department. First position. June 2026."),
     ("05", "STEM outreach to secondary schools", "Live demonstrations of electrical components and robotics for secondary school students."),
 ]
@@ -660,7 +662,7 @@ GALLERY = [
     ("cert-safeguarding.jpg", "awards", "Certificates", "Introduction to Safeguarding and Child Protection, Lagos State DSVA and OEQA, 15 September 2026."),
     ("build-energy-lamps.jpg", "builds", "Builds", "Testing SmartEnergyPro: both lamps on."),
     ("code-pictoblox.jpg", "code training", "Code", "A paddle-and-ball game with a score, built with blocks in PictoBlox."),
-    ("shot-fruit-fritzing.jpg", "builds", "Builds", "The AgroCool+ circuit drawn in Fritzing: ESP32, gas sensor, DHT sensor, ESP32-CAM and two 18650 batteries."),
+    ("shot-fruit-fritzing.jpg", "builds", "Builds", "The Smart Fruit Monitor circuit drawn in Fritzing: ESP32, gas sensor, temperature and humidity sensor, camera module and two batteries."),
     ("build-energy-sockets.jpg", "builds", "Builds", "Testing SmartEnergyPro: both sockets powered."),
     ("cert-gensec.jpg", "awards", "Leadership", "Certificate of return: elected General Secretary of NIEEESA, Olabisi Onabanjo University, 11 December 2025."),
     ("build-nodemcu.jpg", "builds", "Builds", "A NodeMCU V3 (ESP8266) board connected for programming in the Arduino IDE."),
